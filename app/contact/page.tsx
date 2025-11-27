@@ -86,13 +86,12 @@ export default function ContactPage() {
               <span className="text-sm font-semibold">On adore vous lire</span>
             </div>
 
-            <h1 className="font-display text-xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
   Une question ?{" "}
   <span className="bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
     Parlons-en !
   </span>
 </h1>
-
             
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Notre équipe de passionnées est là pour vous accompagner 

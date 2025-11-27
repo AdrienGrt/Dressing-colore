@@ -166,8 +166,8 @@ export default function HomePage() {
               </div>
 
               <Button size="lg" asChild className="group text-base px-8 py-6 bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full transition-all duration-300 shadow-lg shadow-rose-500/25 hover:shadow-xl hover:shadow-rose-500/30">
-                <Link href="/about">
-                  En savoir plus
+                <Link href="/projets">
+                  Voir nos projets
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -581,125 +581,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Newsletter */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 rounded-full px-4 py-1.5 mb-6 text-sm font-medium">
-              <Sparkles className="h-3.5 w-3.5" />
-              Newsletter
-            </div>
-            
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Restez{" "}
-              <span className="bg-gradient-to-r from-rose-500 to-orange-500 bg-clip-text text-transparent">
-                inspirée
-              </span>
-            </h2>
-            <p className="text-lg text-slate-600 mb-8">
-              Nouveautés, tutoriels et{" "}
-              <span className="font-bold text-orange-600">-10% sur votre prochaine commande</span> !
-            </p>
-            
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="votre@email.com"
-                className="flex-1 px-5 py-3.5 rounded-full border-2 border-slate-200 focus:border-rose-400 focus:outline-none focus:ring-4 focus:ring-rose-100 text-base bg-white transition-all"
-              />
-              <Button size="lg" type="submit" className="px-8 rounded-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 font-semibold shadow-lg shadow-rose-500/25">
-                Je m'inscris
-              </Button>
-            </form>
-            
-            <p className="text-sm text-slate-500 mt-4 flex items-center justify-center gap-2">
-              <Check className="h-4 w-4 text-emerald-500" />
-              Pas de spam • +15 000 abonnées
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 border-t border-slate-200 bg-[#FFFBF7]">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="bg-gradient-to-br from-rose-500 to-orange-500 p-2 rounded-xl">
-                  <Scissors className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">Le Dressing Coloré</h3>
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Votre partenaire créatif pour tous vos projets couture depuis 2020.
-              </p>
-              <div className="flex gap-2 pt-2">
-                {["📷", "👍", "📌"].map((emoji, i) => (
-                  <a 
-                    key={i}
-                    href="#" 
-                    className="w-9 h-9 rounded-full bg-slate-100 hover:bg-rose-100 flex items-center justify-center transition-colors text-sm"
-                  >
-                    {emoji}
-                  </a>
-                ))}
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Navigation</h4>
-              <ul className="space-y-2.5">
-                {[
-                  { href: "/shop", label: "Boutique" },
-                  { href: "/about", label: "À propos" },
-                  { href: "/contact", label: "Contact" }
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-slate-600 hover:text-rose-600 transition-colors text-sm">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Informations</h4>
-              <ul className="space-y-2.5">
-                {["Livraison & Retours", "Paiement sécurisé", "CGV"].map((item, i) => (
-                  <li key={i}>
-                    <a href="#" className="text-slate-600 hover:text-rose-600 transition-colors text-sm">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-slate-900 mb-4">Service Client</h4>
-              <ul className="space-y-2.5 text-sm text-slate-600">
-                <li>📞 01 23 45 67 89</li>
-                <li>✉️ contact@dressing-colore.fr</li>
-                <li>🕐 Lun-Ven • 9h-18h</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm flex items-center gap-1">
-              © 2025 Le Dressing Coloré • Fait avec <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500" /> pour les passionnées
-            </p>
-            <div className="flex gap-6 text-sm">
-              <a href="#" className="text-slate-500 hover:text-slate-700 transition-colors">Mentions légales</a>
-              <a href="#" className="text-slate-500 hover:text-slate-700 transition-colors">Confidentialité</a>
-              <a href="#" className="text-slate-500 hover:text-slate-700 transition-colors">Cookies</a>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       {/* Optimized animations - GPU accelerated, reduced complexity */}
       <style jsx global>{`
