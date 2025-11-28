@@ -1,9 +1,11 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { products, categoryLabels } from "@/data/products"
-import { ProductCard } from "@/components/product-card"
+import Link from "next/link"
+import Image from "next/image"
+import { products, categoryLabels, categoryIcons, sizeLabels } from "@/data/products"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/lib/cart-context"
 import type { ProductCategory } from "@/lib/types"
 import { 
   Filter, 
@@ -17,57 +19,23 @@ import {
   ChevronDown,
   Star,
   Zap,
-  ShieldCheck
+  ShieldCheck,
+  Heart,
+  ShoppingBag,
+  Eye
 } from "lucide-react"
 
 type SortOption = "name" | "price-asc" | "price-desc" | "popular"
 type ViewMode = "grid" | "large"
 
-// Configuration des catégories avec couleurs et icônes
-const categoryConfig: Record<ProductCategory | "all", { 
-  label: string
-  icon: string
-  gradient: string
-  count?: number 
-}> = {
-  all: { 
-    label: "Tout voir", 
-    icon: "✨", 
-    gradient: "from-rose-500 to-orange-500" 
-  },
-  tissus: { 
-    label: "Tissus & Textiles", 
-    icon: "🧵", 
-    gradient: "from-rose-500 to-pink-500" 
-  },
-  accessoires: { 
-    label: "Accessoires", 
-    icon: "✂️", 
-    gradient: "from-orange-500 to-amber-500" 
-  },
-  machines: { 
-    label: "Machines & Outils", 
-    icon: "⚙️", 
-    gradient: "from-slate-600 to-slate-800" 
-  },
-  patrons: { 
-    label: "Patrons & Modèles", 
-    icon: "👗", 
-    gradient: "from-purple-500 to-violet-500" 
-  },
-  kits: { 
-    label: "Kits Complets", 
-    icon: "🎁", 
-    gradient: "from-emerald-500 to-teal-500" 
-  },
-}
-
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | "all">("all")
+  const [selectedSize, setSelectedSize] = useState<string | "all">("all")
   const [sortBy, setSortBy] = useState<SortOption>("popular")
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<ViewMode>("grid")
   const [showFilters, setShowFilters] = useState(false)
+  const { addItem } = useCart()
 
   // Compter les produits par catégorie
   const categoryCounts = useMemo(() => {
@@ -77,14 +45,23 @@ export default function ShopPage() {
     }, {} as Record<string, number>)
   }, [])
 
+  // Compter les produits par taille
+  const sizeCounts = useMemo(() => {
+    return products.reduce((acc, product) => {
+      acc[product.size] = (acc[product.size] || 0) + 1
+      return acc
+    }, {} as Record<string, number>)
+  }, [])
+
   // Filtrer et trier les produits
   const filteredProducts = useMemo(() => {
     return products
       .filter((product) => {
         const matchesCategory = selectedCategory === "all" || product.category === selectedCategory
+        const matchesSize = selectedSize === "all" || product.size === selectedSize
         const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                              product.description.toLowerCase().includes(searchQuery.toLowerCase())
-        return matchesCategory && matchesSearch
+        return matchesCategory && matchesSize && matchesSearch
       })
       .sort((a, b) => {
         if (sortBy === "name") return a.name.localeCompare(b.name)
@@ -93,40 +70,45 @@ export default function ShopPage() {
         if (sortBy === "popular") return (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
         return 0
       })
-  }, [selectedCategory, sortBy, searchQuery])
+  }, [selectedCategory, selectedSize, sortBy, searchQuery])
 
-  const categories = Object.entries(categoryConfig) as [ProductCategory | "all", typeof categoryConfig["all"]][]
+  const categories: { value: ProductCategory | "all"; label: string; icon: string }[] = [
+    { value: "all", label: "Tout voir", icon: "✨" },
+    { value: "manteaux", label: "Manteaux", icon: "🧥" },
+    { value: "vestes", label: "Vestes", icon: "🧥" },
+    { value: "gilets", label: "Gilets", icon: "🦺" },
+    { value: "accessoires", label: "Accessoires", icon: "✨" },
+  ]
+
+  const sizes = ["all", "XL", "L", "M", "S"]
 
   return (
     <main className="min-h-screen bg-[#FFFBF7]">
       {/* Hero Header */}
       <section className="relative pt-28 pb-16 overflow-hidden">
-        {/* Background decorations */}
         <div className="absolute inset-0 bg-gradient-to-br from-rose-100/60 via-transparent to-orange-100/40" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-rose-200/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-10 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full px-5 py-2 mb-6 shadow-lg shadow-rose-500/25">
               <Package className="h-4 w-4" />
-              <span className="text-sm font-semibold">{products.length} produits disponibles</span>
+              <span className="text-sm font-semibold">{products.length} pièces uniques disponibles</span>
             </div>
 
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Notre{" "}
               <span className="bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                Boutique
+                Collection
               </span>
             </h1>
             
             <p className="text-xl text-slate-600 max-w-2xl leading-relaxed mb-8">
-              Découvrez notre sélection de tissus premium, accessoires de couture 
-              et tout le nécessaire pour vos créations les plus colorées.
+              Découvrez nos vêtements réversibles artisanaux, confectionnés à la main 
+              dans le Sud-Ouest. Chaque pièce est unique et ne sera jamais reproduite.
             </p>
 
-            {/* Trust badges */}
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
                 <Zap className="h-4 w-4 text-amber-500" />
@@ -134,11 +116,11 @@ export default function ShopPage() {
               </div>
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
                 <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                Paiement sécurisé SumUp
+                Paiement sécurisé
               </div>
               <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
                 <Star className="h-4 w-4 text-amber-500 fill-amber-500" />
-                4.9/5 (2400 avis)
+                Confection artisanale
               </div>
             </div>
           </div>
@@ -176,6 +158,21 @@ export default function ShopPage() {
 
               {/* Sort & View (Desktop) */}
               <div className="hidden lg:flex items-center gap-3">
+                {/* Size Filter */}
+                <div className="flex items-center gap-2 bg-slate-50 rounded-xl px-4 py-2">
+                  <span className="text-sm text-slate-500">Taille:</span>
+                  <select
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                    className="bg-transparent text-sm font-medium text-slate-700 focus:outline-none cursor-pointer"
+                  >
+                    <option value="all">Toutes</option>
+                    {sizes.filter(s => s !== "all").map(size => (
+                      <option key={size} value={size}>{size} ({sizeCounts[size] || 0})</option>
+                    ))}
+                  </select>
+                </div>
+
                 {/* Sort Dropdown */}
                 <div className="flex items-center gap-2 bg-slate-50 rounded-xl px-4 py-2">
                   <ArrowUpDown className="h-4 w-4 text-slate-500" />
@@ -213,6 +210,19 @@ export default function ShopPage() {
             {showFilters && (
               <div className="lg:hidden mt-4 pt-4 border-t border-slate-200 space-y-4">
                 <div className="flex items-center gap-2 bg-slate-50 rounded-xl px-4 py-2">
+                  <span className="text-sm text-slate-500">Taille:</span>
+                  <select
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                    className="flex-1 bg-transparent text-sm font-medium text-slate-700 focus:outline-none"
+                  >
+                    <option value="all">Toutes</option>
+                    {sizes.filter(s => s !== "all").map(size => (
+                      <option key={size} value={size}>{size} ({sizeCounts[size] || 0})</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="flex items-center gap-2 bg-slate-50 rounded-xl px-4 py-2">
                   <ArrowUpDown className="h-4 w-4 text-slate-500" />
                   <select
                     value={sortBy}
@@ -239,24 +249,24 @@ export default function ShopPage() {
                 </div>
 
                 <div className="space-y-2">
-                  {categories.map(([value, config]) => {
-                    const count = value === "all" ? products.length : categoryCounts[value] || 0
-                    const isActive = selectedCategory === value
+                  {categories.map((cat) => {
+                    const count = cat.value === "all" ? products.length : categoryCounts[cat.value] || 0
+                    const isActive = selectedCategory === cat.value
 
                     return (
                       <button
-                        key={value}
-                        onClick={() => setSelectedCategory(value)}
+                        key={cat.value}
+                        onClick={() => setSelectedCategory(cat.value)}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-300 group ${
                           isActive 
-                            ? `bg-gradient-to-r ${config.gradient} text-white shadow-lg` 
+                            ? "bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-lg" 
                             : "hover:bg-slate-50 text-slate-700"
                         }`}
                       >
                         <span className={`text-xl transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`}>
-                          {config.icon}
+                          {cat.icon}
                         </span>
-                        <span className="flex-1 font-medium text-sm">{config.label}</span>
+                        <span className="flex-1 font-medium text-sm">{cat.label}</span>
                         <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                           isActive 
                             ? "bg-white/20 text-white" 
@@ -269,15 +279,39 @@ export default function ShopPage() {
                   })}
                 </div>
 
-                {/* Promo Banner in Sidebar */}
+                {/* Sizes in Sidebar */}
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <h3 className="font-bold text-slate-900 mb-4">Tailles</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {sizes.map((size) => {
+                      const count = size === "all" ? products.length : sizeCounts[size] || 0
+                      const isActive = selectedSize === size
+                      
+                      return (
+                        <button
+                          key={size}
+                          onClick={() => setSelectedSize(size)}
+                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                            isActive
+                              ? "bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow"
+                              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                          }`}
+                        >
+                          {size === "all" ? "Toutes" : size}
+                          <span className="ml-1 opacity-70">({count})</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Promo Banner */}
                 <div className="mt-6 p-5 rounded-2xl bg-gradient-to-br from-rose-500 via-pink-500 to-orange-500 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
-                  
                   <div className="relative z-10">
                     <div className="text-3xl mb-2">🎉</div>
-                    <h3 className="font-bold text-lg mb-1">-20% 1ère commande</h3>
-                    <p className="text-sm text-white/80">Code: BIENVENUE20</p>
+                    <h3 className="font-bold text-lg mb-1">Pièces Uniques</h3>
+                    <p className="text-sm text-white/80">Chaque création est l'unique exemplaire existant</p>
                   </div>
                 </div>
               </div>
@@ -288,15 +322,18 @@ export default function ShopPage() {
               {/* Results count */}
               <div className="flex items-center justify-between mb-6">
                 <p className="text-slate-600">
-                  <span className="font-bold text-slate-900">{filteredProducts.length}</span> produit{filteredProducts.length > 1 ? "s" : ""} trouvé{filteredProducts.length > 1 ? "s" : ""}
+                  <span className="font-bold text-slate-900">{filteredProducts.length}</span> pièce{filteredProducts.length > 1 ? "s" : ""} trouvée{filteredProducts.length > 1 ? "s" : ""}
                 </p>
                 
-                {selectedCategory !== "all" && (
+                {(selectedCategory !== "all" || selectedSize !== "all") && (
                   <button
-                    onClick={() => setSelectedCategory("all")}
+                    onClick={() => {
+                      setSelectedCategory("all")
+                      setSelectedSize("all")
+                    }}
                     className="text-sm font-medium text-rose-600 hover:text-rose-700 flex items-center gap-1"
                   >
-                    Voir tout
+                    Réinitialiser
                     <Sparkles className="h-4 w-4" />
                   </button>
                 )}
@@ -312,10 +349,83 @@ export default function ShopPage() {
                   {filteredProducts.map((product, index) => (
                     <div 
                       key={product.id}
-                      className="animate-fade-in-up"
+                      className="group bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:border-rose-200 transition-all duration-500 hover:-translate-y-2 animate-fade-in-up"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <ProductCard product={product} />
+                      {/* Image */}
+                      <Link href={`/shop/${product.id}`} className="block relative aspect-[4/5] overflow-hidden">
+                        <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        
+                        {/* Badges */}
+                        <div className="absolute top-4 left-4 flex flex-col gap-2">
+                          <span className="bg-gradient-to-r from-rose-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                            Pièce Unique
+                          </span>
+                          {product.featured && (
+                            <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                              ⭐ Coup de cœur
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Size Badge */}
+                        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm font-bold text-slate-700 shadow">
+                          {product.size}
+                        </div>
+
+                        {/* Quick Actions */}
+                        <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                          <Button
+                            size="sm"
+                            className="flex-1 bg-white/95 backdrop-blur-sm text-slate-900 hover:bg-white rounded-full shadow-lg"
+                            asChild
+                          >
+                            <Link href={`/shop/${product.id}`}>
+                              <Eye className="h-4 w-4 mr-1" />
+                              Voir
+                            </Link>
+                          </Button>
+                          <button className="w-10 h-10 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-rose-50 transition-colors">
+                            <Heart className="h-4 w-4 text-slate-600 hover:text-rose-500" />
+                          </button>
+                        </div>
+                      </Link>
+
+                      {/* Info */}
+                      <div className="p-5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                            {categoryLabels[product.category]}
+                          </span>
+                        </div>
+
+                        <Link href={`/shop/${product.id}`}>
+                          <h3 className="font-bold text-lg text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-2 mb-2">
+                            {product.name}
+                          </h3>
+                        </Link>
+
+                        <p className="text-sm text-slate-500 line-clamp-2 mb-4">
+                          {product.shortDescription}
+                        </p>
+
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-black text-slate-900">{product.price}€</span>
+                          <Button
+                            onClick={() => addItem(product)}
+                            size="sm"
+                            className="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full shadow"
+                          >
+                            <ShoppingBag className="h-4 w-4 mr-1" />
+                            Ajouter
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -329,6 +439,7 @@ export default function ShopPage() {
                   <Button
                     onClick={() => {
                       setSelectedCategory("all")
+                      setSelectedSize("all")
                       setSearchQuery("")
                     }}
                     className="bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full px-6"
@@ -338,15 +449,15 @@ export default function ShopPage() {
                 </div>
               )}
 
-              {/* Load More / Pagination placeholder */}
+              {/* Results Info */}
               {filteredProducts.length > 0 && (
                 <div className="mt-12 text-center">
                   <p className="text-slate-500 text-sm mb-4">
-                    Vous avez vu {filteredProducts.length} produit{filteredProducts.length > 1 ? "s" : ""}
+                    Vous avez vu {filteredProducts.length} pièce{filteredProducts.length > 1 ? "s" : ""} unique{filteredProducts.length > 1 ? "s" : ""}
                   </p>
                   <div className="inline-flex items-center gap-2 text-rose-600 font-medium">
                     <Sparkles className="h-4 w-4" />
-                    Tous les produits sont affichés
+                    Toutes les pièces sont affichées
                   </div>
                 </div>
               )}
@@ -355,10 +466,8 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
+      {/* CTA Banner */}
       <section className="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50" />
-        
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left">
@@ -366,22 +475,24 @@ export default function ShopPage() {
                 Une question ? Besoin de conseils ?
               </h2>
               <p className="text-slate-300">
-                Notre équipe est là pour vous accompagner dans vos projets créatifs
+                Je suis là pour vous accompagner dans votre choix
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
+                asChild
                 className="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full px-8 shadow-lg shadow-rose-500/25"
               >
-                Nous contacter
+                <Link href="/contact">Nous contacter</Link>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
+                asChild
                 className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 rounded-full px-8"
               >
-                FAQ
+                <Link href="/entretien">Guide d'entretien</Link>
               </Button>
             </div>
           </div>

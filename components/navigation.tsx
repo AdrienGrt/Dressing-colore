@@ -43,6 +43,7 @@ export function Navigation() {
     { href: "/shop", label: "Boutique", icon: "🛍️", description: "Nos tissus & accessoires" },
     { href: "/projets", label: "Projets personnalisés", icon: "✨", description: "Créations sur mesure" },
     { href: "/entretien", label: "Entretien", icon: "🧼", description: "Conseils & astuces" },
+    { href: "/about", label: "À propos", icon: "💜", description: "Notre histoire" },
     { href: "/contact", label: "Contact", icon: "✉️", description: "Nous écrire" },
   ]
 

@@ -1,11 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { 
   ShoppingBag, 
-  Trash2, 
   Plus, 
   Minus, 
   Sparkles, 
@@ -13,48 +12,31 @@ import {
   ShieldCheck,
   Truck,
   Gift,
-  X,
-  Heart
+  X
 } from "lucide-react"
-import { getCart, updateQuantity, removeFromCart } from "@/lib/cart"
-import type { Cart } from "@/lib/types"
+import { useCart } from "@/lib/cart-context"
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 export function CartSheet() {
-  const [cart, setCart] = useState<Cart>({ items: [], total: 0 })
+  const { cart, updateQuantity, removeItem, itemCount } = useCart()
   const [isOpen, setIsOpen] = useState(false)
   const [removingId, setRemovingId] = useState<string | null>(null)
 
-  useEffect(() => {
-    const updateCart = () => {
-      setCart(getCart())
-    }
-
-    updateCart()
-    window.addEventListener("cartUpdated", updateCart)
-    return () => window.removeEventListener("cartUpdated", updateCart)
-  }, [])
-
   const handleUpdateQuantity = (productId: string, newQuantity: number) => {
-    const updatedCart = updateQuantity(productId, newQuantity)
-    setCart(updatedCart)
-    window.dispatchEvent(new Event("cartUpdated"))
+    updateQuantity(productId, newQuantity)
   }
 
   const handleRemove = (productId: string) => {
     setRemovingId(productId)
     setTimeout(() => {
-      const updatedCart = removeFromCart(productId)
-      setCart(updatedCart)
-      window.dispatchEvent(new Event("cartUpdated"))
+      removeItem(productId)
       setRemovingId(null)
     }, 300)
   }
 
-  const itemCount = cart.items.reduce((sum, item) => sum + item.quantity, 0)
-  
-  // Calculate if free shipping is reached (example: 50€)
+  // Calculate if free shipping is reached (50€)
   const freeShippingThreshold = 50
   const remainingForFreeShipping = Math.max(0, freeShippingThreshold - cart.total)
   const freeShippingProgress = Math.min(100, (cart.total / freeShippingThreshold) * 100)
@@ -138,7 +120,7 @@ export function CartSheet() {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Votre panier est vide</h3>
               <p className="text-slate-500 mb-8 max-w-xs">
-                Découvrez notre sélection de tissus et accessoires pour vos créations
+                Découvrez nos pièces uniques réversibles confectionnées à la main
               </p>
               <Button 
                 asChild 
@@ -164,9 +146,20 @@ export function CartSheet() {
                     )}
                   >
                     <div className="flex gap-4">
-                      {/* Product Icon */}
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center flex-shrink-0">
-                        <span className="text-3xl">{item.product.icon}</span>
+                      {/* Product Image */}
+                      <div className="w-20 h-24 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0 relative">
+                        {item.product.images && item.product.images[0] ? (
+                          <Image
+                            src={item.product.images[0]}
+                            alt={item.product.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <ShoppingBag className="h-8 w-8 text-slate-300" />
+                          </div>
+                        )}
                       </div>
                       
                       {/* Product Info */}
@@ -183,22 +176,33 @@ export function CartSheet() {
                           </button>
                         </div>
                         
-                        <p className="text-xs text-slate-400 mt-0.5 capitalize">{item.product.category}</p>
+                        {/* Category & Size */}
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-xs text-slate-400 capitalize">{item.product.category}</span>
+                          <span className="text-xs text-slate-300">•</span>
+                          <span className="text-xs font-medium text-rose-600">Taille {item.product.size}</span>
+                        </div>
+
+                        {/* Badge Pièce Unique */}
+                        <div className="mt-2">
+                          <span className="inline-flex items-center text-xs bg-gradient-to-r from-rose-100 to-orange-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">
+                            ✨ Pièce unique
+                          </span>
+                        </div>
                         
                         <div className="flex items-center justify-between mt-3">
-                          {/* Quantity Controls */}
-                          <div className="flex items-center gap-1 bg-slate-100 rounded-full p-1">
+                          {/* Quantity - Disabled for unique pieces */}
+                          <div className="flex items-center gap-1 bg-slate-100 rounded-full p-1 opacity-50">
                             <button
-                              onClick={() => handleUpdateQuantity(item.product.id, item.quantity - 1)}
-                              disabled={item.quantity <= 1}
-                              className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
+                              disabled
+                              className="w-7 h-7 rounded-full flex items-center justify-center cursor-not-allowed"
                             >
                               <Minus className="h-3 w-3" />
                             </button>
                             <span className="w-8 text-center text-sm font-semibold">{item.quantity}</span>
                             <button
-                              onClick={() => handleUpdateQuantity(item.product.id, item.quantity + 1)}
-                              className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                              disabled
+                              className="w-7 h-7 rounded-full flex items-center justify-center cursor-not-allowed"
                             >
                               <Plus className="h-3 w-3" />
                             </button>
@@ -207,13 +211,8 @@ export function CartSheet() {
                           {/* Price */}
                           <div className="text-right">
                             <p className="font-bold text-slate-900">
-                              {(item.product.price * item.quantity).toFixed(2)}€
+                              {item.product.price}€
                             </p>
-                            {item.quantity > 1 && (
-                              <p className="text-xs text-slate-400">
-                                {item.product.price}€ / unité
-                              </p>
-                            )}
                           </div>
                         </div>
                       </div>
@@ -228,8 +227,8 @@ export function CartSheet() {
                       <Gift className="h-5 w-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-slate-900">Code promo BIENVENUE20</p>
-                      <p className="text-xs text-slate-500">-20% sur votre 1ère commande</p>
+                      <p className="text-sm font-semibold text-slate-900">Code promo BIENVENUE10</p>
+                      <p className="text-xs text-slate-500">-10% sur votre 1ère commande</p>
                     </div>
                   </div>
                 </div>

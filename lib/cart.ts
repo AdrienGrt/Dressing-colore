@@ -2,7 +2,7 @@
 
 import type { Product, Cart, CartItem } from "./types"
 
-const CART_STORAGE_KEY = "music_studio_cart"
+const CART_STORAGE_KEY = "dressing_colore_cart"
 const CART_EXPIRATION_HOURS = 24
 
 export const getCart = (): Cart => {
@@ -45,8 +45,11 @@ export const addToCart = (product: Product): Cart => {
   const cart = getCart()
   const existingItemIndex = cart.items.findIndex((item) => item.product.id === product.id)
 
+  // Pour les pièces uniques, on ne permet pas d'ajouter plus d'un exemplaire
   if (existingItemIndex > -1) {
-    cart.items[existingItemIndex].quantity += 1
+    // Le produit est déjà dans le panier, on ne l'ajoute pas à nouveau
+    // car chaque pièce est unique (stock = 1)
+    return cart
   } else {
     cart.items.push({ product, quantity: 1 })
   }
@@ -74,7 +77,8 @@ export const updateQuantity = (productId: string, quantity: number): Cart => {
     if (quantity <= 0) {
       return removeFromCart(productId)
     }
-    item.quantity = quantity
+    // Pour les pièces uniques, la quantité max est toujours 1
+    item.quantity = Math.min(quantity, item.product.stock || 1)
     cart.total = cart.items.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
     saveCart(cart)
   }
@@ -87,4 +91,14 @@ export const clearCart = (): Cart => {
     localStorage.removeItem(CART_STORAGE_KEY)
   }
   return { items: [], total: 0 }
+}
+
+export const getCartItemCount = (): number => {
+  const cart = getCart()
+  return cart.items.reduce((count, item) => count + item.quantity, 0)
+}
+
+export const isProductInCart = (productId: string): boolean => {
+  const cart = getCart()
+  return cart.items.some((item) => item.product.id === productId)
 }

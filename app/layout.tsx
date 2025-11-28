@@ -1,20 +1,32 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { CartProvider } from "@/lib/cart-context"
 
-const geist = Geist({ subsets: ["latin"] })
-const geistMono = Geist_Mono({ subsets: ["latin"] })
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+})
 
 export const metadata: Metadata = {
-  title: "Le Dressing Coloré - Mercerie & Couture en Ligne",
+  title: "Le Dressing Coloré | Vêtements Réversibles Artisanaux",
   description:
-    "Découvrez notre sélection de tissus, accessoires de couture, machines et patrons pour tous vos projets créatifs",
+    "Découvrez nos vêtements réversibles uniques, confectionnés à la main dans le Sud-Ouest. Manteaux, vestes et gilets en wax et bouclette.",
   generator: "v0.app",
-  keywords: ["couture", "tissus", "mercerie", "accessoires couture", "patrons", "machine à coudre"],
+  keywords: [
+    "vêtements réversibles",
+    "wax",
+    "bouclette",
+    "artisanal",
+    "fait main",
+    "mode éthique",
+    "slow fashion",
+    "pièce unique",
+  ],
   icons: {
     icon: [
       {
@@ -41,11 +53,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`font-sans antialiased`}>
-        <Navigation />
-        {children}
-        <Footer />
-        <Analytics />
+      <body className={`${plusJakarta.variable} font-sans antialiased`}>
+        <CartProvider>
+          <Navigation />
+          {children}
+          <Footer />
+          <Analytics />
+        </CartProvider>
       </body>
     </html>
   )
