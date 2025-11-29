@@ -5,14 +5,18 @@ export const products: Product[] = [
   // TAILLE XL - VESTES
   // ============================================
   {
-    id: "veste-wax-fleurs-violettes-bouclette-mauve-xl",
-    name: "Veste Réversible Wax Fleurs Violettes et Bouclette Mauve",
+    id: "sirius-veste-xl",
+    name: "Sirius - Veste XL",
     price: 75,
     category: "vestes",
     size: "XL",
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Sirius1.jpg",
+      "/images/Sirius2.jpg",
+      "/images/Sirius3.jpg",
+      "/images/Sirius4.jpg",
+      "/images/Sirius5.jpg",
+      "/images/Sirius6.jpg"
     ],
     shortDescription: "Veste réversible wax floral violet et bouclette mauve - Pièce unique",
     description: "Craquez pour cette veste réversible femme créée par Le Dressing Coloré, une pièce unique qui marie élégance florale et douceur cosy pour sublimer votre garde-robe d'hiver. Ce vêtement réversible vous offre deux univers distincts : d'un côté, un wax en coton aux motifs floraux violets sur fond kaki doré qui évoque la nature et l'originalité. De l'autre, une bouclette mauve douce et chaleureuse, parfaite pour un style cocooning raffiné.",
@@ -48,14 +52,18 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "veste-courte-wax-rouge-geometrique-xl",
-    name: "Veste Courte Réversible Wax Rouge Géométrique",
+    id: "antares-veste-xl",
+    name: "Antarès - Veste XL",
     price: 75,
     category: "vestes",
     size: "XL",
     images: [
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop"
+      "/images/Antares1.jpg",
+      "/images/Antares2.jpg",
+      "/images/Antares3.jpg",
+      "/images/Antares4.jpg",
+      "/images/Antares5.jpg",
+      "/images/Antares6.jpg"
     ],
     shortDescription: "Veste courte réversible wax rouge géométrique et tissu uni - Pièce unique",
     description: "Succombez à l'élégance de cette veste courte réversible femme créée par Le Dressing Coloré, une pièce unique qui apporte caractère et sophistication à votre garde-robe d'hiver. Ce vêtement réversible vous offre deux styles distincts : d'un côté, un wax en coton rouge éclatant aux motifs géométriques étoilés jaunes, marron et bleus qui affirme votre personnalité avec audace. De l'autre, un tissu 100% polyester uni, chaud et confortable, parfait pour un style sobre et élégant.",
@@ -95,14 +103,18 @@ export const products: Product[] = [
   // TAILLE XL - GILETS
   // ============================================
   {
-    id: "gilet-wax-jaune-rouge-xl",
-    name: "Gilet Sans Manches Réversible Wax Jaune et Rouge",
+    id: "maia-gilet-xl",
+    name: "Maïa - Gilet XL",
     price: 75,
     category: "gilets",
     size: "XL",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Maia1.jpg",
+      "/images/Maia2.jpg",
+      "/images/Maia3.jpg",
+      "/images/Maia4.jpg",
+      "/images/Maia5.jpg",
+      "/images/Maia6.jpg"
     ],
     shortDescription: "Gilet sans manches réversible wax jaune graphique et matelassé rouge - Pièce unique",
     description: "Osez l'audace avec ce gilet sans manches réversible femme signé Le Dressing Coloré, une création unique qui apporte énergie et caractère à votre garde-robe d'hiver. Ce vêtement réversible vous offre deux looks vibrants : d'un côté, un wax en coton jaune éclatant à motifs graphiques circulaires rouge, bleu et noir qui affirme votre personnalité avec force. De l'autre, un tissu matelassé rouge profond, chaud et élégant, parfait pour un style sophistiqué et intense.",
@@ -137,14 +149,15 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-liberty-rose-bouclette-xl",
-    name: "Gilet Sans Manches Réversible Liberty Rose et Bouclette",
+    id: "merope-gilet-xl",
+    name: "Mérope - Gilet XL",
     price: 45,
     category: "gilets",
     size: "XL",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Merope1.jpg",
+      "/images/Merope2.jpg",
+      "/images/Merope3.jpg"
     ],
     shortDescription: "Gilet sans manches réversible liberty rose floral et bouclette beige - Pièce unique",
     description: "Craquez pour ce gilet sans manches réversible, une pièce unique qui apporte douceur et élégance à votre garde-robe d'hiver. Ce vêtement réversible vous offre deux looks raffinés : d'un côté, un délicat tissu liberty rose à motifs floraux qui évoque la féminité et la douceur. De l'autre, une bouclette beige chaude et confortable, parfaite pour un style épuré et intemporel.",
@@ -179,14 +192,20 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-wax-spirales-fourrure-xl",
-    name: "Gilet Réversible Wax Spirales et Fausse Fourrure Noire",
+    id: "capella-gilet-xl",
+    name: "Capella - Gilet XL",
     price: 45,
     category: "gilets",
     size: "XL",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Capella1.jpg",
+      "/images/Capella2.jpg",
+      "/images/Capella3.jpg",
+      "/images/Capella4.jpg",
+      "/images/Capella5.jpg",
+      "/images/Capella6.jpg",
+      "/images/Capella7.jpg",
+      "/images/Capella8.jpg"
     ],
     shortDescription: "Gilet réversible wax spirales bleues hypnotiques et fausse fourrure noire - Pièce unique",
     description: "Attention, ce gilet réversible femme risque de provoquer des vertiges... et une jalousie féroce chez vos amies ! Signé Le Dressing Coloré, cette création unique transforme instantanément votre look. Ce vêtement réversible vous offre deux univers contrastés : d'un côté, un wax spectaculaire aux grandes spirales bleues hypnotiques sur fond écru, rehaussé de motifs jaune moutarde et bordeaux. De l'autre, une fausse fourrure noire ultra douce et chaude qui vous enveloppe de confort durant tout l'hiver.",
@@ -225,14 +244,18 @@ export const products: Product[] = [
   // TAILLE L - MANTEAUX
   // ============================================
   {
-    id: "manteau-celosia-wax-jaune-noir-l",
-    name: "Celosia - Manteau Court Réversible Wax Géométrique Jaune et Noir",
+    id: "altair-manteau-l",
+    name: "Altaïr - Manteau L",
     price: 130,
     category: "manteaux",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Altair1.jpg",
+      "/images/Altair2.jpg",
+      "/images/Altair3.jpg",
+      "/images/Altair4.jpg",
+      "/images/Altair5.jpg",
+      "/images/Altair6.jpg"
     ],
     shortDescription: "Manteau court réversible matelassé wax jaune géométrique et noir uni - Pièce unique",
     description: "Osez l'audace avec ce manteau court réversible femme signé Le Dressing Coloré, une création unique qui transforme votre hiver en déclaration de style affirmée. Ce manteau réversible vous propose deux univers contrastés : d'un côté, un wax en coton aux motifs géométriques solaires jaunes avec des rosaces circulaires noires, rouges et turquoise qui captivent le regard et célèbrent l'art textile africain. De l'autre, un tissu uni noir sobre et intemporel, parfait pour un minimalisme urbain sophistiqué. Matelassé avec une ouate épaisse, ce vêtement garantit confort thermique et protection contre le froid.",
@@ -271,14 +294,16 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "manteau-brassica-wax-bleu-violet-l",
-    name: "Brassica - Manteau Court Réversible Wax Floral Bleu et Violet",
+    id: "procyon-manteau-l",
+    name: "Procyon - Manteau L",
     price: 130,
     category: "manteaux",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Procyon1.jpg",
+      "/images/Procyon2.jpg",
+      "/images/Procyon3.jpg",
+      "/images/Procyon4.jpg"
     ],
     shortDescription: "Manteau court réversible matelassé wax floral bleu turquoise et violet aubergine - Pièce unique",
     description: "Découvrez ce manteau court réversible femme créé par Le Dressing Coloré, une pièce unique qui révolutionne votre garde-robe d'hiver avec style et sophistication. Ce manteau réversible vous offre deux personnalités distinctes : d'un côté, un wax en coton bleu turquoise éclatant orné de majestueuses fleurs violettes et blanches qui célèbrent la nature et l'audace. De l'autre, un tissu uni violet aubergine élégant et intemporel, parfait pour un look raffiné et discret. Matelassé avec une ouate épaisse, ce vêtement vous garantit une chaleur optimale.",
@@ -321,14 +346,19 @@ export const products: Product[] = [
   // TAILLE L - VESTES
   // ============================================
   {
-    id: "veste-wax-multicolore-bouclette-vert-canard-l",
-    name: "Veste Réversible Wax Multicolore et Bouclette Vert Canard",
+    id: "electra-veste-l",
+    name: "Electra - Veste L",
     price: 75,
     category: "vestes",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Electra1.jpg",
+      "/images/Electra2.jpg",
+      "/images/Electra3.jpg",
+      "/images/Electra4.jpg",
+      "/images/Electra5.jpg",
+      "/images/Electra6.jpg",
+      "/images/Electra7.jpg"
     ],
     shortDescription: "Veste réversible wax multicolore graphique et bouclette vert canard - Pièce unique",
     description: "Osez l'audace avec cette veste réversible femme signée Le Dressing Coloré, une création unique qui apporte énergie et sophistication à votre garde-robe d'hiver. Ce vêtement réversible vous offre deux styles puissants : d'un côté, un wax en coton aux motifs géométriques multicolores (rouge, bleu turquoise, jaune, blanc, noir) qui affirme votre personnalité avec force et créativité. De l'autre, une bouclette vert canard élégante et chaleureuse, parfaite pour un style raffiné et moderne.",
@@ -363,65 +393,25 @@ export const products: Product[] = [
     ],
     stock: 1
   },
-  {
-    id: "veste-courte-wax-jaune-gris-bouclette-kaki-l",
-    name: "Veste Courte Réversible Wax Jaune Gris et Bouclette Kaki",
-    price: 75,
-    category: "vestes",
-    size: "L",
-    images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
-    ],
-    shortDescription: "Veste courte réversible wax jaune et gris abstrait et bouclette kaki - Pièce unique",
-    description: "Succombez au charme de cette veste courte réversible femme créée par Le Dressing Coloré, une pièce unique qui allie modernité graphique et élégance naturelle pour votre garde-robe d'hiver. Ce vêtement réversible vous offre deux styles contrastés : d'un côté, un wax en coton aux motifs abstraits jaunes éclatants sur fond gris et blanc qui évoque la créativité et l'originalité. De l'autre, une bouclette kaki douce et chaleureuse, parfaite pour un style sobre et raffiné.",
-    featured: false,
-    details: {
-      face1: {
-        name: "Wax Jaune et Gris",
-        composition: "100% coton",
-        description: "Motifs abstraits jaunes éclatants sur fond gris et blanc"
-      },
-      face2: {
-        name: "Bouclette Kaki",
-        composition: "80% polyester, 20% mohair",
-        description: "Douce et chaleureuse"
-      },
-      coupe: "Courte, sans fermeture, à porter ouverte",
-      manches: "Longues",
-      entretien: "Lavage délicat à 30°C recommandé",
-      confection: "Artisanale française"
-    },
-    styleTips: [
-      "Éclat jaune : Portez le côté wax avec un jean noir ou gris et un t-shirt blanc.",
-      "Nature sophistiquée : Optez pour la bouclette kaki avec un pantalon beige ou marron et une chemise écrue.",
-      "Casual moderne : Associez le wax jaune avec des tons neutres.",
-      "Élégance douce : La bouclette kaki se marie parfaitement avec une robe noire."
-    ],
-    highlights: [
-      "Coupe moderne : Veste courte flatteuse",
-      "Polyvalence artistique : Une veste, deux ambiances !",
-      "Chaleur et confort : Manches longues protectrices",
-      "Pièce unique : L'unique exemplaire existant"
-    ],
-    stock: 1
-  },
 
   // ============================================
   // TAILLE L - GILETS
   // ============================================
   {
-    id: "gilet-wax-orange-floral-bouclette-anthracite-l",
-    name: "Gilet Sans Manches Réversible Wax Orange Floral et Bouclette Anthracite",
+    id: "taygeta-gilet-l",
+    name: "Taygeta - Gilet L",
     price: 75,
     category: "gilets",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Taygeta1.jpg",
+      "/images/Taygeta2.jpg",
+      "/images/Taygeta3.jpg",
+      "/images/Taygeta4.jpg",
+      "/images/Taygeta5.jpg"
     ],
     shortDescription: "Gilet sans manches réversible wax orange floral abstrait et bouclette gris anthracite - Pièce unique",
-    description: "Osez l'audace avec ce gilet sans manches réversible femme signé Le Dressing Coloré, une création unique qui apporte énergie et sophistication à votre garde-robe d'hiver.",
+    description: "Osez l'audace avec ce gilet sans manches réversible femme signé Le Dressing Coloré, une création unique qui apporte énergie et sophistication à votre garde-robe d'hiver. Ce vêtement réversible vous offre deux looks contrastés : d'un côté, un wax en coton orange éclatant aux motifs floraux abstraits mêlant bordeaux, gris et touches de vert qui affirme votre personnalité avec force. De l'autre, une bouclette gris anthracite élégante et chaleureuse, parfaite pour un style sobre et raffiné.",
     featured: false,
     details: {
       face1: {
@@ -453,17 +443,21 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-wax-feuilles-bouclette-rouge-l",
-    name: "Gilet Réversible Wax Feuilles Noir Doré et Bouclette Rouge",
+    id: "vega-gilet-l",
+    name: "Vega - Gilet L",
     price: 45,
     category: "gilets",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Vega1.jpg",
+      "/images/Vega2.jpg",
+      "/images/Vega3.jpg",
+      "/images/Vega4.jpg",
+      "/images/Vega5.jpg",
+      "/images/Vega6.jpg"
     ],
     shortDescription: "Gilet réversible wax feuilles noir blanc doré et bouclette rouge bordeaux - Pièce unique",
-    description: "Attention, ce gilet réversible femme risque de devenir votre meilleur allié mode de l'hiver ! Créé par Le Dressing Coloré, cette pièce unique allie audace et confort avec un sens du style imparable.",
+    description: "Attention, ce gilet réversible femme risque de devenir votre meilleur allié mode de l'hiver ! Créé par Le Dressing Coloré, cette pièce unique allie audace et confort avec un sens du style imparable. Ce vêtement réversible vous offre deux ambiances radicalement différentes : d'un côté, un wax spectaculaire avec des feuilles stylisées en noir, blanc et doré sur fond noir. De l'autre, une bouclette rouge profond ultra chaude et moelleuse qui vous enveloppe comme un câlin douillet.",
     featured: false,
     details: {
       face1: {
@@ -495,17 +489,21 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-wax-bordeaux-rose-bouclette-ecrue-l",
-    name: "Gilet Réversible Wax Bordeaux Rose et Bouclette Écrue",
+    id: "arcturus-gilet-l",
+    name: "Arcturus - Gilet L",
     price: 45,
     category: "gilets",
     size: "L",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Arcturus1.jpg",
+      "/images/Arcturus2.jpg",
+      "/images/Arcturus3.jpg",
+      "/images/Arcturus4.jpg",
+      "/images/Arcturus5.jpg",
+      "/images/Arcturus6.jpg"
     ],
     shortDescription: "Gilet réversible wax bordeaux rose corail éventails et bouclette écrue mohair - Pièce unique",
-    description: "Préparez-vous à collectionner les compliments ! Ce gilet réversible femme créé par Le Dressing Coloré est une explosion de féminité et d'élégance.",
+    description: "Préparez-vous à collectionner les compliments ! Ce gilet réversible femme créé par Le Dressing Coloré est une explosion de féminité et d'élégance. Ce vêtement réversible vous offre deux univers raffinés : d'un côté, un wax somptueux dans des tons bordeaux, rose corail et noir. Les motifs en éventail pointillés créent un effet hypnotique et sophistiqué. De l'autre, une bouclette écrue ultra douce et chaude pour un look cocooning chic.",
     featured: false,
     details: {
       face1: {
@@ -541,17 +539,22 @@ export const products: Product[] = [
   // TAILLE M - VESTES
   // ============================================
   {
-    id: "veste-courte-blanche-wax-floral-m",
-    name: "Veste Courte Réversible Blanche et Wax Floral",
+    id: "fomalhaut-veste-m",
+    name: "Fomalhaut - Veste M",
     price: 75,
     category: "vestes",
     size: "M",
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Fomalhaut1.jpg",
+      "/images/Fomalhaut2.jpg",
+      "/images/Fomalhaut3.jpg",
+      "/images/Fomalhaut4.jpg",
+      "/images/Fomalhaut5.jpg",
+      "/images/Fomalhaut6.jpg",
+      "/images/Fomalhaut7.jpg"
     ],
     shortDescription: "Veste courte réversible bouclette blanche immaculée et wax floral jaune bleu - Pièce unique",
-    description: "Succombez au charme de cette veste courte réversible femme signée Le Dressing Coloré, une création unique qui apporte élégance et fantaisie à votre garde-robe d'hiver.",
+    description: "Succombez au charme de cette veste courte réversible femme signée Le Dressing Coloré, une création unique qui apporte élégance et fantaisie à votre garde-robe d'hiver. Ce vêtement réversible vous propose deux styles distincts : d'un côté, une bouclette blanche immaculée au toucher doux et moelleux, parfaite pour un look épuré et sophistiqué. De l'autre, un wax en coton aux motifs floraux jaunes moutarde et bleus sur fond marine.",
     featured: false,
     details: {
       face1: {
@@ -584,17 +587,21 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "veste-kaki-wax-jaune-m",
-    name: "Veste Réversible Kaki et Wax Jaune",
+    id: "schedar-veste-m",
+    name: "Schedar - Veste M",
     price: 75,
     category: "vestes",
     size: "M",
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Schedar1.jpg",
+      "/images/Schedar2.jpg",
+      "/images/Schedar3.jpg",
+      "/images/Schedar4.jpg",
+      "/images/Schedar5.jpg",
+      "/images/Schedar6.jpg"
     ],
     shortDescription: "Veste réversible bouclette kaki/taupe et wax jaune éclatant - Pièce unique",
-    description: "Craquez pour cette veste réversible femme créée par Le Dressing Coloré, une pièce unique qui illumine votre garde-robe d'hiver avec style et originalité.",
+    description: "Craquez pour cette veste réversible femme créée par Le Dressing Coloré, une pièce unique qui illumine votre garde-robe d'hiver avec style et originalité. Ce vêtement réversible vous offre deux looks en un : d'un côté, une élégante bouclette kaki/taupe chaude et confortable. De l'autre, un wax en coton aux motifs jaunes éclatants sur fond bleu marine.",
     featured: false,
     details: {
       face1: {
@@ -631,17 +638,21 @@ export const products: Product[] = [
   // TAILLE M - GILETS
   // ============================================
   {
-    id: "gilet-wax-graphique-noir-blanc-m",
-    name: "Gilet Réversible Wax Graphique Noir & Blanc",
+    id: "aldebaran-gilet-m",
+    name: "Aldébaran - Gilet M",
     price: 45,
     category: "gilets",
     size: "M",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Albedaran1.jpg",
+      "/images/Albedaran2.jpg",
+      "/images/Albedaran3.jpg",
+      "/images/Albedaran4.jpg",
+      "/images/Albedaran5.jpg",
+      "/images/Albedaran6.jpg"
     ],
     shortDescription: "Gilet réversible wax graphique noir blanc doré et bouclette noire - Pièce unique",
-    description: "Attention, ce gilet réversible femme risque de faire tourner les têtes à 180 degrés ! Signé Le Dressing Coloré, cette création unique est l'alliance parfaite entre art graphique et confort absolu.",
+    description: "Attention, ce gilet réversible femme risque de faire tourner les têtes à 180 degrés ! Signé Le Dressing Coloré, cette création unique est l'alliance parfaite entre art graphique et confort absolu. Ce vêtement réversible vous offre deux univers contrastés : d'un côté, un wax graphique spectaculaire en noir et blanc avec des touches de doré. De l'autre, une bouclette noire ultra douce et chaude pour un look sophistiqué et cocooning.",
     featured: true,
     details: {
       face1: {
@@ -673,59 +684,21 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-marbre-pastel-bouclette-violette-m",
-    name: "Gilet Réversible Marbré Pastel et Bouclette Violette",
+    id: "celaeno-gilet-m",
+    name: "Célaéno - Gilet M",
     price: 45,
     category: "gilets",
     size: "M",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
-    ],
-    shortDescription: "Gilet réversible imprimé marbré pastel artistique et bouclette violette - Pièce unique",
-    description: "Préparez-vous à recevoir des 'C'est magnifique, où l'as-tu trouvé ?' en boucle ! Ce gilet réversible femme créé par Le Dressing Coloré est une véritable œuvre d'art portable.",
-    featured: false,
-    details: {
-      face1: {
-        name: "Imprimé Marbré Pastel",
-        composition: "Tissu léger",
-        description: "Rose, mauve, bleu turquoise et jaune, effet peinture abstraite"
-      },
-      face2: {
-        name: "Bouclette Violette",
-        composition: "100% polyester",
-        description: "Ultra douce et chaude"
-      },
-      coupe: "Sans manches, ouvert (sans fermeture)",
-      entretien: "Lavage à la main à froid conseillé",
-      confection: "Artisanale française"
-    },
-    styleTips: [
-      "Look créatif et doux : Portez le côté marbré sur un t-shirt blanc ou rose poudré avec un jean clair.",
-      "Style minimaliste chic : Optez pour la face violette avec un total look noir ou gris.",
-      "Bohème moderne : Associez le marbré pastel avec une jupe longue beige ou une robe fluide.",
-      "Confort hivernal : La face bouclette violette se porte sur un pull col roulé écru."
-    ],
-    highlights: [
-      "Un imprimé à tomber : Ressemble à une toile d'artiste",
-      "Douceur hivernale : Bouclette moelleuse sensation 'nuage chaud'",
-      "Couleurs apaisantes : Tons pastel zen et poétiques",
-      "Pièce unique : Vous serez officiellement la seule personne au monde avec ce gilet"
-    ],
-    stock: 1
-  },
-  {
-    id: "gilet-wax-fleurs-bouclette-bleu-jean-m",
-    name: "Gilet Réversible Wax Fleurs et Bouclette Bleu Jean",
-    price: 45,
-    category: "gilets",
-    size: "M",
-    images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Celaeno1.jpg",
+      "/images/Celaeno2.jpg",
+      "/images/Celaeno3.jpg",
+      "/images/Celaeno4.jpg",
+      "/images/Celaeno5.jpg",
+      "/images/Celaeno6.jpg"
     ],
     shortDescription: "Gilet réversible wax grandes fleurs noir blanc rose et bouclette bleu jean mohair - Pièce unique",
-    description: "Préparez-vous à devenir LA personne qu'on arrête dans la rue pour lui demander 'Où as-tu trouvé ce gilet ?!' Créé par Le Dressing Coloré, ce gilet réversible femme est une véritable œuvre d'art portable.",
+    description: "Préparez-vous à devenir LA personne qu'on arrête dans la rue pour lui demander 'Où as-tu trouvé ce gilet ?!' Créé par Le Dressing Coloré, ce gilet réversible femme est une véritable œuvre d'art portable. Ce vêtement réversible vous offre deux univers élégants : d'un côté, un wax majestueux avec de grandes fleurs graphiques en noir, blanc et touches rose sur fond noir. De l'autre, une bouclette bleu jean ultra douce et chaude.",
     featured: false,
     details: {
       face1: {
@@ -761,17 +734,19 @@ export const products: Product[] = [
   // TAILLE S - VESTES
   // ============================================
   {
-    id: "veste-wax-noir-rose-bouclette-ecrue-s",
-    name: "Veste Réversible Wax Noir et Rose",
+    id: "alhena-veste-s",
+    name: "Alhéna - Veste S",
     price: 75,
     category: "vestes",
     size: "S",
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Alhena1.jpg",
+      "/images/Alhena2.jpg",
+      "/images/Alhena3.jpg",
+      "/images/Alhena4.jpg"
     ],
     shortDescription: "Veste réversible wax noir géométrique rose violet et bouclette écrue mohair - Pièce unique",
-    description: "Découvrez cette veste réversible femme exceptionnelle créée par Le Dressing Coloré ! Une pièce unique qui transforme instantanément votre style grâce à sa double face.",
+    description: "Découvrez cette veste réversible femme exceptionnelle créée par Le Dressing Coloré ! Une pièce unique qui transforme instantanément votre style grâce à sa double face. Ce vêtement réversible vous offre deux looks distincts : d'un côté, un wax sophistiqué noir avec des motifs géométriques rose et violet. De l'autre, une matière bouclette écrue ultra chaude et confortable.",
     featured: false,
     details: {
       face1: {
@@ -808,17 +783,21 @@ export const products: Product[] = [
   // TAILLE S - GILETS
   // ============================================
   {
-    id: "gilet-atlas-wax-rose-dore-mohair-bleu-s",
-    name: "Gilet Atlas Réversible Wax Rose Doré et Mohair Bleu",
+    id: "atlas-gilet-s",
+    name: "Atlas - Gilet S",
     price: 45,
     category: "gilets",
     size: "S",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Atlas1.jpg",
+      "/images/Atlas2.jpg",
+      "/images/Atlas3.jpg",
+      "/images/Atlas4.jpg",
+      "/images/Atlas5.jpg",
+      "/images/Atlas6.jpg"
     ],
     shortDescription: "Gilet réversible wax rose et doré élégant et mohair bleu profond - Pièce unique",
-    description: "Découvrez ce gilet réversible femme imaginé par Le Dressing Coloré, une création unique qui sublime votre garde-robe avec élégance et originalité.",
+    description: "Découvrez ce gilet réversible femme imaginé par Le Dressing Coloré, une création unique qui sublime votre garde-robe avec élégance et originalité. Ce vêtement réversible offre deux styles en un : d'un côté, un magnifique satin de coton en wax aux motifs roses et dorés qui évoque la douceur et la féminité. De l'autre, une matière chaude et confortable dans un bleu profond.",
     featured: false,
     details: {
       face1: {
@@ -849,17 +828,20 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-alcyone-wax-multicolore-bouclette-vert-s",
-    name: "Gilet Alcyone Réversible Wax Multicolore et Bouclette Vert Émeraude",
+    id: "alcyone-gilet-s",
+    name: "Alcyone - Gilet S",
     price: 45,
     category: "gilets",
     size: "S",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Alcyone1.jpg",
+      "/images/Alcyone2.jpg",
+      "/images/Alcyone3.jpg",
+      "/images/Alcyone4.jpg",
+      "/images/Alcyone5.jpg"
     ],
     shortDescription: "Gilet réversible wax géométrique turquoise rouge jaune et bouclette vert émeraude - Pièce unique",
-    description: "Coup de cœur assuré pour ce gilet réversible femme signé Le Dressing Coloré ! Une création unique qui transforme votre style en un clin d'œil.",
+    description: "Coup de cœur assuré pour ce gilet réversible femme signé Le Dressing Coloré ! Une création unique qui transforme votre style en un clin d'œil. Ce vêtement réversible vous offre deux univers distincts : d'un côté, un wax éclatant aux motifs géométriques turquoise, rouge, jaune et blanc sur fond noir. De l'autre, une matière bouclette vert émeraude ultra chaude.",
     featured: false,
     details: {
       face1: {
@@ -890,17 +872,21 @@ export const products: Product[] = [
     stock: 1
   },
   {
-    id: "gilet-wax-rouge-bouclette-anthracite-s",
-    name: "Gilet Réversible Wax Rouge et Bouclette Anthracite",
+    id: "polaris-gilet-s",
+    name: "Polaris - Gilet S",
     price: 45,
     category: "gilets",
     size: "S",
     images: [
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop",
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1000&fit=crop"
+      "/images/Polaris1.jpg",
+      "/images/Polaris2.jpg",
+      "/images/Polaris3.jpg",
+      "/images/Polaris4.jpg",
+      "/images/Polaris5.jpg",
+      "/images/Polaris6.jpg"
     ],
     shortDescription: "Gilet réversible wax rouge vif graphique jaune et gris et bouclette noir anthracite - Pièce unique",
-    description: "Laissez-vous séduire par ce gilet réversible femme audacieux signé Le Dressing Coloré ! Une création unique qui apporte une touche de caractère à votre garde-robe.",
+    description: "Laissez-vous séduire par ce gilet réversible femme audacieux signé Le Dressing Coloré ! Une création unique qui apporte une touche de caractère à votre garde-robe. Ce vêtement réversible offre deux ambiances radicalement différentes : d'un côté, un wax éclatant rouge vif aux motifs graphiques jaune et gris. De l'autre, une matière bouclette noir anthracite ultra chaude et douce.",
     featured: false,
     details: {
       face1: {
