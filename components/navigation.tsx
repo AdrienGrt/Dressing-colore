@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { CartSheet } from "./cart-sheet"
-import { Menu, X, Scissors, Sparkles, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight } from "lucide-react"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 export function Navigation() {
@@ -67,18 +68,18 @@ export function Navigation() {
           <div className="flex items-center justify-between h-18 py-3">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-500 to-orange-500 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative bg-gradient-to-br from-rose-500 via-orange-500 to-pink-500 p-2.5 rounded-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                  <Scissors className="h-5 w-5 text-white" />
-                </div>
+              <div className="relative group-hover:scale-110 transition-all duration-300">
+                <Image 
+                  src="/icon.png" 
+                  alt="Le Dressing Coloré Logo" 
+                  width={50} 
+                  height={50}
+                  className="object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-black tracking-tight bg-gradient-to-r from-rose-500 via-orange-500 to-pink-600 bg-clip-text text-transparent">
                   Le Dressing Coloré
-                </span>
-                <span className="text-[10px] font-semibold text-slate-400 -mt-0.5 tracking-widest uppercase">
-                  Mercerie & Couture
                 </span>
               </div>
             </Link>
@@ -158,8 +159,14 @@ export function Navigation() {
           <div className="bg-gradient-to-r from-rose-500 via-orange-500 to-pink-500 px-6 py-8">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl">
-                  <Scissors className="h-6 w-6 text-white" />
+                <div className="p-1">
+                  <Image 
+                    src="/icon.png" 
+                    alt="Le Dressing Coloré Logo" 
+                    width={40} 
+                    height={40}
+                    className="object-contain"
+                  />
                 </div>
                 <div>
                   <p className="text-white font-bold text-lg">Le Dressing Coloré</p>

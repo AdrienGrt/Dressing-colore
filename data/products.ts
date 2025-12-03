@@ -782,51 +782,7 @@ export const products: Product[] = [
   // ============================================
   // TAILLE S - GILETS
   // ============================================
-  {
-    id: "atlas-gilet-s",
-    name: "Atlas - Gilet S",
-    price: 45,
-    category: "gilets",
-    size: "S",
-    images: [
-      "/images/Atlas1.jpg",
-      "/images/Atlas2.jpg",
-      "/images/Atlas3.jpg",
-      "/images/Atlas4.jpg",
-      "/images/Atlas5.jpg",
-      "/images/Atlas6.jpg"
-    ],
-    shortDescription: "Gilet réversible wax rose et doré élégant et mohair bleu profond - Pièce unique",
-    description: "Découvrez ce gilet réversible femme imaginé par Le Dressing Coloré, une création unique qui sublime votre garde-robe avec élégance et originalité. Ce vêtement réversible offre deux styles en un : d'un côté, un magnifique satin de coton en wax aux motifs roses et dorés qui évoque la douceur et la féminité. De l'autre, une matière chaude et confortable dans un bleu profond.",
-    featured: false,
-    details: {
-      face1: {
-        name: "Wax Rose et Doré",
-        composition: "Satin de coton",
-        description: "Motifs roses et dorés, doux et féminin"
-      },
-      face2: {
-        name: "Mohair Bleu Profond",
-        composition: "80% polyester, 20% mohair",
-        description: "Chaud et confortable"
-      },
-      coupe: "Sans manches",
-      entretien: "Lavage délicat à la main recommandé",
-      confection: "Artisanale française"
-    },
-    styleTips: [
-      "Look casual chic : Associez le côté wax avec un jean noir et un t-shirt noir.",
-      "Style hivernal cocooning : Portez le côté mohair chaud sur une robe pull ou un col roulé.",
-      "Superposition tendance : Ce vêtement réversible se glisse parfaitement sur une chemise blanche."
-    ],
-    highlights: [
-      "Polyvalence exceptionnelle : Deux styles en un",
-      "Pièce unique : Vous ne croiserez jamais personne avec le même",
-      "Idéal pour l'hiver : Mohair chaud d'un côté, wax élégant de l'autre",
-      "Mode écoresponsable : Un vêtement réversible = deux articles"
-    ],
-    stock: 1
-  },
+  
   {
     id: "alcyone-gilet-s",
     name: "Alcyone - Gilet S",

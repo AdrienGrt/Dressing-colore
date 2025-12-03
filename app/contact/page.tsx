@@ -52,19 +52,19 @@ export default function ContactPage() {
   const faqs = [
     {
       question: "Quels sont les délais de livraison ?",
-      answer: "Nous expédions sous 24h et la livraison s'effectue en 48h en France métropolitaine. Pour les DOM-TOM et l'international, comptez 5 à 10 jours ouvrés."
+      answer: "J'expédie sous 24h et la livraison s'effectue en 48h en France métropolitaine. Pour les DOM-TOM et l'international, comptez 5 à 10 jours ouvrés."
     },
     {
       question: "Comment retourner un article ?",
-      answer: "Vous disposez de 30 jours pour nous retourner un article. Contactez-nous pour obtenir une étiquette de retour gratuite. Le remboursement est effectué sous 5 jours après réception."
+      answer: "Vous disposez de 30 jours pour retourner un article. Contactez-moi pour obtenir une étiquette de retour gratuite. Le remboursement est effectué sous 5 jours après réception."
     },
     {
       question: "Les tissus sont-ils pré-lavés ?",
-      answer: "Nos tissus en lin et double gaze sont pré-lavés. Pour les autres tissus, nous recommandons un premier lavage à 30°C avant la coupe pour éviter le rétrécissement."
+      answer: "Les tissus en lin et double gaze sont pré-lavés. Pour les autres tissus, je recommande un premier lavage à 30°C avant la coupe pour éviter le rétrécissement."
     },
     {
       question: "Proposez-vous des échantillons ?",
-      answer: "Oui ! Nous proposons des échantillons à 1€ pièce (remboursés sur votre première commande de 30€ ou plus). Contactez-nous avec les références souhaitées."
+      answer: "Oui ! Je propose des échantillons à 1€ pièce (remboursés sur votre première commande de 30€ ou plus). Contactez-moi avec les références souhaitées."
     }
   ]
 
@@ -83,18 +83,18 @@ export default function ContactPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-orange-500 text-white rounded-full px-5 py-2 mb-8 shadow-lg shadow-rose-500/25">
               <MessageCircle className="h-4 w-4" />
-              <span className="text-sm font-semibold">On adore vous lire</span>
+              <span className="text-sm font-semibold">J'adore vous lire</span>
             </div>
 
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
   Une question ?{" "}
   <span className="bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-    Parlons-en !
+    Discutons-en !
   </span>
 </h1>
             
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Notre équipe de passionnées est là pour vous accompagner 
+              Je suis là pour vous accompagner 
               dans tous vos projets créatifs.
             </p>
           </div>
@@ -109,26 +109,26 @@ export default function ContactPage() {
               {
                 icon: Mail,
                 title: "Email",
-                value: "contact@dressing-colore.fr",
+                value: "ledressingcolore@gmail.com",
                 subtitle: "Réponse sous 24h",
                 gradient: "from-rose-500 to-pink-500",
-                href: "mailto:contact@dressing-colore.fr"
+                href: "mailto:ledressingcolore@gmail.com"
               },
               {
                 icon: Phone,
                 title: "Téléphone",
-                value: "01 23 45 67 89",
+                value: "07 45 11 22 68",
                 subtitle: "Lun-Ven 9h-18h",
                 gradient: "from-orange-500 to-amber-500",
-                href: "tel:+33123456789"
+                href: "tel:+33745112268"
               },
               {
-                icon: MessageCircle,
-                title: "Chat en direct",
-                value: "Disponible maintenant",
-                subtitle: "Réponse instantanée",
+                icon: MapPin,
+                title: "Localisation",
+                value: "Valence d'Agen",
+                subtitle: "Tarn-et-Garonne (82)",
                 gradient: "from-emerald-500 to-teal-500",
-                href: "#"
+                href: "#map"
               }
             ].map((item, i) => (
               <a 
@@ -140,7 +140,7 @@ export default function ContactPage() {
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <div className="text-sm text-slate-500 mb-1">{item.title}</div>
-                <div className="font-bold text-slate-900 mb-1">{item.value}</div>
+                <div className="font-bold text-slate-900 mb-1 break-all">{item.value}</div>
                 <div className="text-xs text-slate-400">{item.subtitle}</div>
               </a>
             ))}
@@ -161,8 +161,8 @@ export default function ContactPage() {
                     <Send className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900">Envoyez-nous un message</h2>
-                    <p className="text-slate-500 text-sm">Nous vous répondons sous 24h</p>
+                    <h2 className="text-2xl font-bold text-slate-900">Envoyez-moi un message</h2>
+                    <p className="text-slate-500 text-sm">Je vous réponds sous 24h</p>
                   </div>
                 </div>
 
@@ -175,7 +175,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-bold text-emerald-800 mb-1">Message envoyé avec succès !</h3>
                       <p className="text-sm text-emerald-700">
-                        Merci pour votre message. Notre équipe vous répondra dans les plus brefs délais.
+                        Merci pour votre message. Je vous répondrai dans les plus brefs délais.
                       </p>
                     </div>
                   </div>
@@ -285,7 +285,7 @@ export default function ContactPage() {
                   </Button>
 
                   <p className="text-center text-sm text-slate-500">
-                    En envoyant ce formulaire, vous acceptez notre{" "}
+                    En envoyant ce formulaire, vous acceptez ma{" "}
                     <a href="#" className="text-rose-600 hover:underline">politique de confidentialité</a>
                   </p>
                 </form>
@@ -301,7 +301,7 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
                     <Clock className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h3 className="font-bold text-slate-900">Horaires du service client</h3>
+                  <h3 className="font-bold text-slate-900">Horaires de disponibilité</h3>
                 </div>
                 
                 <div className="space-y-3">
@@ -331,17 +331,17 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center">
                     <MapPin className="h-5 w-5 text-rose-600" />
                   </div>
-                  <h3 className="font-bold text-slate-900">Notre adresse</h3>
+                  <h3 className="font-bold text-slate-900">Localisation</h3>
                 </div>
                 
                 <p className="text-slate-600 leading-relaxed mb-4">
                   Le Dressing Coloré<br />
-                  123 Rue de la Couture<br />
-                  75011 Paris, France
+                  Valence d'Agen<br />
+                  82400, Tarn-et-Garonne
                 </p>
 
                 <a 
-                  href="https://maps.google.com" 
+                  href="https://www.google.com/maps/search/Valence+d'Agen" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-rose-600 font-medium hover:text-rose-700 transition-colors"
@@ -359,7 +359,7 @@ export default function ContactPage() {
                 <div className="relative z-10">
                   <div className="flex items-center gap-2 mb-3">
                     <Heart className="h-5 w-5 fill-white" />
-                    <span className="font-semibold">Notre promesse</span>
+                    <span className="font-semibold">Ma promesse</span>
                   </div>
                   <p className="text-white/90 leading-relaxed">
                     Une réponse personnalisée et chaleureuse sous 24h. 
@@ -448,7 +448,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+      <section id="map" className="py-20 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
@@ -457,7 +457,7 @@ export default function ContactPage() {
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-rose-500 mx-auto mb-4" />
                   <p className="text-slate-600 font-medium">Carte interactive</p>
-                  <p className="text-sm text-slate-400">123 Rue de la Couture, 75011 Paris</p>
+                  <p className="text-sm text-slate-400">Valence d'Agen, 82400 Tarn-et-Garonne</p>
                 </div>
                 
                 {/* Decorative elements */}
@@ -467,14 +467,14 @@ export default function ContactPage() {
               
               <div className="p-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Venez nous rendre visite !</h3>
-                  <p className="text-slate-500 text-sm">Métro : Voltaire (ligne 9) ou Charonne (ligne 9)</p>
+                  <h3 className="font-bold text-slate-900 mb-1">Située dans le Tarn-et-Garonne</h3>
+                  <p className="text-slate-500 text-sm">À Valence d'Agen, entre Agen et Moissac</p>
                 </div>
                 <Button 
                   asChild
                   className="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full px-6"
                 >
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.google.com/maps/search/Valence+d'Agen" target="_blank" rel="noopener noreferrer">
                     Obtenir l'itinéraire
                   </a>
                 </Button>
@@ -493,10 +493,10 @@ export default function ContactPage() {
           <div className="max-w-3xl mx-auto text-center text-white">
             <Sparkles className="h-10 w-10 mx-auto mb-6 text-rose-400" />
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Rejoignez notre newsletter
+              Rejoignez ma newsletter
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Recevez nos nouveautés, conseils couture et{" "}
+              Recevez mes nouveautés, conseils couture et{" "}
               <span className="text-orange-400 font-semibold">-10% sur votre prochaine commande</span>
             </p>
 
