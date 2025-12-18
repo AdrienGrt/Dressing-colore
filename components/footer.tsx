@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { Scissors, Heart, ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Phone, Mail, Clock } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -12,13 +13,7 @@ export function Footer() {
     { href: "/projets", label: "Projets personnalisés" },
     { href: "/entretien", label: "Entretien" },
     { href: "/contact", label: "Contact" },
-  ]
-
-  const infoLinks = [
-    { href: "/livraison", label: "Livraison & Retours" },
-    { href: "/paiement", label: "Paiement sécurisé" },
-    { href: "/cgv", label: "Conditions générales" },
-    { href: "/faq", label: "FAQ" },
+    { href: "/cgv", label: "CGV" },
   ]
 
   const socialLinks = [
@@ -71,21 +66,26 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div>
             <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
-              <div className="bg-gradient-to-br from-rose-500 to-orange-500 p-2.5 rounded-xl group-hover:scale-105 transition-transform shadow-lg">
-                <Scissors className="h-5 w-5 text-white" />
+              <div className="relative group-hover:scale-105 transition-transform">
+                <Image 
+                  src="/icon.png" 
+                  alt="Le Dressing Coloré Logo" 
+                  width={50} 
+                  height={50}
+                  className="object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">Le Dressing Coloré</h3>
-                <p className="text-xs text-slate-500 font-medium">Mercerie & Couture</p>
+                <p className="text-xs text-slate-500 font-medium">Créations artisanales</p>
               </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Votre partenaire créatif pour tous vos projets couture. 
-              Des tissus de qualité et un service personnalisé depuis 2020.
+              Vêtements réversibles artisanaux qui célèbrent l'individualité par la couleur et l'unicité.
             </p>
             
             {/* Social Links */}
@@ -126,27 +126,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Info Column */}
-          <div>
-            <h4 className="font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-gradient-to-r from-rose-500 to-orange-500 rounded-full" />
-              Informations
-            </h4>
-            <ul className="space-y-3">
-              {infoLinks.map((link, i) => (
-                <li key={i}>
-                  <Link 
-                    href={link.href} 
-                    className="text-slate-400 hover:text-white transition-colors text-sm flex items-center gap-2 group"
-                  >
-                    <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-rose-400" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact Column */}
           <div>
             <h4 className="font-bold text-white mb-6 flex items-center gap-2">
@@ -156,28 +135,28 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a 
-                  href="tel:+33123456789" 
+                  href="tel:+33745112268" 
                   className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-slate-800 group-hover:bg-rose-500/20 flex items-center justify-center flex-shrink-0 transition-colors">
                     <Phone className="h-4 w-4 text-rose-400" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">01 23 45 67 89</p>
+                    <p className="text-sm font-medium text-white">07 45 11 22 68</p>
                     <p className="text-xs text-slate-500">Appelez-nous</p>
                   </div>
                 </a>
               </li>
               <li>
                 <a 
-                  href="mailto:contact@dressing-colore.fr" 
+                  href="mailto:ledressingcolore@gmail.com" 
                   className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-slate-800 group-hover:bg-orange-500/20 flex items-center justify-center flex-shrink-0 transition-colors">
                     <Mail className="h-4 w-4 text-orange-400" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">contact@dressing-colore.fr</p>
+                    <p className="text-sm font-medium text-white">ledressingcolore@gmail.com</p>
                     <p className="text-xs text-slate-500">Écrivez-nous</p>
                   </div>
                 </a>
@@ -191,15 +170,6 @@ export function Footer() {
                   <p className="text-xs text-slate-500">Sam : 10h - 16h</p>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-4 w-4 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-white">Paris, France</p>
-                  <p className="text-xs text-slate-500">Livraison partout en France</p>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
@@ -209,7 +179,6 @@ export function Footer() {
           {[
             { icon: "🔒", text: "Paiement sécurisé", subtext: "SSL & SumUp" },
             { icon: "🚚", text: "Livraison rapide", subtext: "48h en France" },
-            { icon: "↩️", text: "Retours gratuits", subtext: "30 jours" },
             { icon: "💬", text: "Support 7j/7", subtext: "À votre écoute" },
           ].map((badge, i) => (
             <div key={i} className="flex items-center gap-3 px-4">
@@ -226,24 +195,9 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-slate-800 bg-slate-900/50">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm flex items-center gap-1.5">
-              © {currentYear} Le Dressing Coloré • Fait avec{" "}
-              <Heart className="h-3.5 w-3.5 fill-rose-500 text-rose-500 animate-pulse" />{" "}
-              pour les passionnées
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <Link href="/mentions-legales" className="text-slate-500 hover:text-white transition-colors">
-                Mentions légales
-              </Link>
-              <Link href="/confidentialite" className="text-slate-500 hover:text-white transition-colors">
-                Confidentialité
-              </Link>
-              <Link href="/cookies" className="text-slate-500 hover:text-white transition-colors">
-                Cookies
-              </Link>
-            </div>
-          </div>
+          <p className="text-slate-500 text-sm text-center">
+            © {currentYear} Le Dressing Coloré
+          </p>
         </div>
       </div>
     </footer>

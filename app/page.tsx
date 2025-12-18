@@ -20,16 +20,29 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rose-100/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent" />
         
+        {/* Banner image - positioned at bottom third */}
+        <div className="absolute top-10 left-0 right-0 h-2/3">
+        <Image
+            src="/baniere-accueil.jpeg"
+            alt="Le Dressing Coloré - Collection Étoiles"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        
         {/* Floating decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-32 left-[10%] w-3 h-3 rounded-full bg-rose-400/60 animate-float-gentle" />
           <div className="absolute top-48 right-[15%] w-2 h-2 rounded-full bg-blue-400/60 animate-float-gentle-delayed" />
-          <div className="absolute bottom-40 left-[20%] w-4 h-4 rounded-full bg-amber-400/40 animate-float-gentle" />
+          <div className="absolute bottom-[40%] left-[20%] w-4 h-4 rounded-full bg-amber-400/40 animate-float-gentle" />
           <div className="absolute top-1/3 right-[8%] w-2 h-2 rounded-full bg-pink-400/50 animate-float-gentle-delayed" />
           
           {/* Decorative stars */}
           <Star className="absolute top-28 left-[8%] h-6 w-6 text-amber-300/50 fill-amber-300/30 animate-float-gentle" />
-          <Sparkles className="absolute bottom-32 right-[12%] h-6 w-6 text-rose-300/50 animate-pulse-soft" />
+          <Sparkles className="absolute bottom-[40%] right-[12%] h-6 w-6 text-rose-300/50 animate-pulse-soft" />
           <Star className="absolute top-1/2 left-[5%] h-4 w-4 text-blue-300/40 fill-blue-300/20 animate-float-gentle-delayed" />
         </div>
 
@@ -44,15 +57,14 @@ export default function HomePage() {
 
             {/* Main heading */}
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-fade-in-up">
-              <span className="block text-slate-900">Bienvenue dans</span>
-              <span className="block bg-gradient-to-r from-rose-500 via-blue-500 to-amber-500 bg-clip-text text-transparent">
+            <span className="block text-white drop-shadow-lg">Bienvenue dans</span>
+                          <span className="block bg-gradient-to-r from-rose-500 via-blue-500 to-amber-500 bg-clip-text text-transparent">
                 votre nouveau
               </span>
-              <span className="block text-slate-900">Dressing Coloré!</span>
-            </h1>
+              <span className="block text-white drop-shadow-lg">Dressing Coloré!</span>
+                          </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-100">
-              Vêtements réversibles artisanaux qui célèbrent l'individualité par la couleur et l'unicité. 
+                          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-100 drop-shadow-md">              Vêtements réversibles artisanaux qui célèbrent l'individualité par la couleur et l'unicité. 
               Chaque création associe wax africain 100% coton et bouclette dans un travail de confection exigeant.
             </p>
 
@@ -105,8 +117,8 @@ export default function HomePage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-gentle">
-          <ChevronDown className="h-6 w-6 text-slate-400" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-gentle z-20">
+          <ChevronDown className="h-6 w-6 text-white" />
         </div>
       </section>
 
@@ -459,7 +471,7 @@ export default function HomePage() {
               <span className="text-sm font-semibold text-slate-600">À venir</span>
             </div>
             <h3 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-              En 2026, une nouvelle collection naîtra.
+              En décembre 2026, une nouvelle collection naîtra.
             </h3>
             <p className="text-lg text-slate-600">
               Le thème changera, mais <span className="font-semibold text-slate-900">l'exigence restera : rareté, artisanal, unicité.</span>

@@ -41,9 +41,9 @@ export function Navigation() {
 
   const navLinks = [
     { href: "/", label: "Accueil", icon: "🏠", description: "Retour à l'accueil" },
-    { href: "/shop", label: "Boutique", icon: "🛍️", description: "Nos tissus & accessoires" },
+    { href: "/shop", label: "Boutique", icon: "🛍️", description: "Trouvez votre étoile" },
     { href: "/projets", label: "Projets personnalisés", icon: "✨", description: "Créations sur mesure" },
-    { href: "/entretien", label: "Entretien", icon: "🧼", description: "Conseils & astuces" },
+    { href: "/entretien", label: "Entretien", icon: "🧼", description: "Faire vivre mon étoile" },
     { href: "/about", label: "À propos", icon: "💜", description: "Notre histoire" },
     { href: "/contact", label: "Contact", icon: "✉️", description: "Nous écrire" },
   ]
@@ -248,10 +248,10 @@ export function Navigation() {
             <div className="text-center">
               <p className="text-xs text-slate-400 mb-2">Besoin d'aide ?</p>
               <a 
-                href="tel:+33123456789" 
+                href="tel:+33745112268" 
                 className="inline-flex items-center gap-2 text-sm font-semibold text-rose-600"
               >
-                📞 01 23 45 67 89
+                📞 07 45 11 22 68
               </a>
             </div>
           </div>
