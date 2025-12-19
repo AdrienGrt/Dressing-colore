@@ -221,7 +221,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-rose-400 to-blue-400 rounded-[2rem] rotate-3 scale-[1.02] opacity-30" />
                 <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-white/10">
                   <Image
-                    src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&h=1000&auto=format&fit=crop"
+                    src="/images/accueil-photo.jpeg"
                     alt="Vêtement réversible de la Collection Étoiles"
                     fill
                     className="object-cover"
